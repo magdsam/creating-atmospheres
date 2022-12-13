@@ -12,65 +12,64 @@ export default async (app) => {
      * Application entrypoints
      */
     .entry({
-      app: ["@scripts/app", "@styles/app"],
-      editor: ["@scripts/editor", "@styles/editor"],
+      app: ['@scripts/app', '@styles/app'],
+      editor: ['@scripts/editor', '@styles/editor'],
     })
 
     /**
      * Directory contents to be included in the compilation
      */
-    .assets(["images"])
+    .assets(['images'])
 
     /**
      * Matched files trigger a page reload when modified
      */
-    .watch(["resources/views/**/*", "app/**/*"])
+    .watch(['resources/views/**/*', 'app/**/*'])
 
     /**
      * Proxy origin (`WP_HOME`)
      */
-    .proxy("http://example.test")
+    .proxy('http://creatingatmospheres.local')
 
     /**
      * Development origin
      */
-    .serve("http://0.0.0.0:3000")
+    .serve('http://localhost:3000')
 
     /**
      * URI of the `public` directory
      */
-    .setPublicPath("/app/themes/sage/public/")
+    .setPublicPath('/app/themes/atmospheres/public/')
 
     /**
      * Generate WordPress `theme.json`
      *
      * @note This overwrites `theme.json` on every build.
      */
-    .wpjson
-      .settings({
-        color: {
-          custom: false,
-          customGradient: false,
-          defaultPalette: false,
-          defaultGradients: false,
-        },
-        custom: {
-          spacing: {},
-          typography: {
-            'font-size': {},
-            'line-height': {},
-          },
-        },
-        spacing: {
-          padding: true,
-          units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
-        },
+    .wpjson.settings({
+      color: {
+        custom: false,
+        customGradient: false,
+        defaultPalette: false,
+        defaultGradients: false,
+      },
+      custom: {
+        spacing: {},
         typography: {
-          customFontSize: false,
+          'font-size': {},
+          'line-height': {},
         },
-      })
-      .useTailwindColors()
-      .useTailwindFontFamily()
-      .useTailwindFontSize()
-      .enable()
+      },
+      spacing: {
+        padding: true,
+        units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
+      },
+      typography: {
+        customFontSize: false,
+      },
+    })
+    .useTailwindColors()
+    .useTailwindFontFamily()
+    .useTailwindFontSize()
+    .enable();
 };

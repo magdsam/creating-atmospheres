@@ -1,11 +1,23 @@
 <header class="banner">
-  <a class="brand" href="{{ home_url('/') }}">
-    {!! $siteName !!}
-  </a>
-
-  @if (has_nav_menu('primary_navigation'))
-    <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
-    </nav>
-  @endif
+  <div class="banner__inner flex justify-between px-12 pt-9">
+    <div class="banner__logos flex gap-x-[6.25rem] items-center">
+      <div class="banner__logos__logo">
+        @svg('images.idk-logo')
+      </div>
+      <div class="banner__logos__logo">
+        @svg('images.fh-joanneum-logo')
+      </div>
+      <div class="banner__logos__logo">
+        @svg('images.esc-logo')
+      </div>
+      <div class="banner__logos__logo text-xl">
+        @svg('images.kunstuni-logo')
+      </div>
+    </div>
+    <div class="banner__cta">
+      @hasoption('header-cta')
+      @option('header-cta')
+      @endoption
+    </div>
+  </div>
 </header>

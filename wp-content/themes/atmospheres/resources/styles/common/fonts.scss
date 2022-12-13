@@ -1,0 +1,14 @@
+@layer base {
+  @font-face {
+    font-family: "Bellede Mai";
+    src: url("../../fonts/BelledeMai-Regular.otf") format("opentype");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Bellede Mai";
+    src: url("../../fonts/BelledeMai-Bold.otf") format("opentype");
+    font-display: swap;
+    font-weight: 700;
+  }
+}
