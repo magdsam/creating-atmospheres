@@ -29,6 +29,6 @@
     "stylelint-config-prettier-scss": "^0.0.1"
   },
   "dependencies": {
-    "three.js": "^0.77.1"
+    "gsap": "^3.11.3"
   }
 }

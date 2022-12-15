@@ -1,0 +1,35 @@
+.wp-block-intro-info {
+  &__video {
+    video {
+      width: calc(100% + 2rem);
+    }
+  }
+
+  &__tagline {
+    @apply uppercase text-8xl leading-[1.2];
+
+    em {
+      @apply font-serif font-bold;
+
+      font-style: normal;
+    }
+  }
+
+  &__taglines {
+    @apply absolute;
+
+    &--1 {
+      @apply top-[20%] flex flex-col gap-y-32 items-center;
+
+      // .wp-block-intro-info__tagline {
+      //   &:first-child {
+      //     @
+      //   }
+      // }
+    }
+
+    &--2 {
+      @apply top-[40%];
+    }
+  }
+}

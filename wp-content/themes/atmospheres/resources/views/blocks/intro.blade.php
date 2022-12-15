@@ -1,4 +1,4 @@
-<div class="{{ $block->classes }} mt-48">
+<div class="{{ $block->classes }} mt-48 mb-20 px-8 2xl:px-16">
   <div class="wp-block-intro__inner flex justify-between items-center gap-x-5">
     <div class="wp-block-intro__info wp-block-intro__info--left w-1/4 text-xl font-medium">
       {!! $info_left !!}

@@ -1158,19 +1158,54 @@
       "customFontSize": false,
       "fontFamilies": [
         {
-          "name": "Ui-sans-serif",
-          "slug": "sans",
-          "fontFamily": "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\""
-        },
-        {
-          "name": "Ui-serif",
-          "slug": "serif",
-          "fontFamily": "ui-serif,Georgia,Cambria,\"Times New Roman\",Times,serif"
-        },
-        {
           "name": "Ui-monospace",
-          "slug": "mono",
-          "fontFamily": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace"
+          "slug": "0",
+          "fontFamily": "ui-monospace"
+        },
+        {
+          "name": "SFMono-Regular",
+          "slug": "1",
+          "fontFamily": "SFMono-Regular"
+        },
+        {
+          "name": "Menlo",
+          "slug": "2",
+          "fontFamily": "Menlo"
+        },
+        {
+          "name": "Monaco",
+          "slug": "3",
+          "fontFamily": "Monaco"
+        },
+        {
+          "name": "Consolas",
+          "slug": "4",
+          "fontFamily": "Consolas"
+        },
+        {
+          "name": "\"Liberation Mono\"",
+          "slug": "5",
+          "fontFamily": "\"Liberation Mono\""
+        },
+        {
+          "name": "\"Courier New\"",
+          "slug": "6",
+          "fontFamily": "\"Courier New\""
+        },
+        {
+          "name": "Monospace",
+          "slug": "7",
+          "fontFamily": "monospace"
+        },
+        {
+          "name": "Bellede Mai",
+          "slug": "serif",
+          "fontFamily": "Bellede Mai"
+        },
+        {
+          "name": "Acumin-pro",
+          "slug": "sans",
+          "fontFamily": "acumin-pro"
         }
       ],
       "fontSizes": [
