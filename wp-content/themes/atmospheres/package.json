@@ -18,14 +18,14 @@
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
   },
   "devDependencies": {
-    "@roots/bud": "6.4.5",
+    "@roots/bud": "^6.6.5",
     "@roots/bud-eslint": "^6.6.5",
     "@roots/bud-prettier": "^6.6.5",
     "@roots/bud-sass": "^6.6.5",
     "@roots/bud-stylelint": "^6.6.5",
-    "@roots/bud-tailwindcss": "6.4.5",
+    "@roots/bud-tailwindcss": "^6.6.5",
     "@roots/eslint-config": "^6.6.5",
-    "@roots/sage": "6.4.5",
+    "@roots/sage": "^6.6.5",
     "stylelint-config-prettier-scss": "^0.0.1"
   },
   "dependencies": {
