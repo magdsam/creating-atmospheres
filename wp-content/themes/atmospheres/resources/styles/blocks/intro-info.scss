@@ -1,4 +1,6 @@
 .wp-block-intro-info {
+  @apply z-10;
+
   &__video {
     @apply h-full;
 

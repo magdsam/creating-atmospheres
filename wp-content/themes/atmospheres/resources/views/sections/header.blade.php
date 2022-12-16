@@ -1,4 +1,4 @@
-<header class="banner">
+<header class="banner fixed top-0 left-0 w-full">
   <div class="banner__inner flex justify-between px-8 2xl:px-16 pt-9">
     <div class="banner__logos flex gap-x-[6.25rem] items-center">
       <div class="banner__logos__logo">
