@@ -12,7 +12,7 @@
   }
 
   &__tagline {
-    @apply uppercase text-8xl w-full leading-[0.93];
+    @apply uppercase text-4xl md:text-5xl lg:text-8xl w-full leading-[0.93];
 
     em {
       @apply font-serif font-bold;
@@ -22,7 +22,7 @@
   }
 
   &__content {
-    @apply pt-[50vw] px-8 2xl:px-16 pb-40;
+    @apply pt-[50vw] px-4 md:px-8 2xl:px-16 pb-40;
   }
 
   &__taglines {
@@ -37,20 +37,20 @@
     @apply text-center mt-8;
 
     &__content {
-      @apply gap-x-4;
+      @apply gap-x-2 md:gap-x-4;
     }
 
     &__item {
-      @apply w-[18rem];
+      @apply w-16 lg:w-[18rem];
     }
 
     &__item .legend {
-      @apply uppercase text-center text-3xl font-light mt-8;
+      @apply uppercase text-center text-base lg:text-3xl font-light mt-8;
     }
 
     &__item .number,
     &__divider {
-      @apply text-[14rem] font-serif font-bold leading-none;
+      @apply text-5xl lg:text-[14rem] font-serif font-bold leading-none;
     }
 
     .seconds .number {
