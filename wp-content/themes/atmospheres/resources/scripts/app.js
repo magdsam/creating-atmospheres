@@ -79,8 +79,7 @@ const main = async (err) => {
         duration: 1.8,
         scrollTrigger: {
           trigger: tagline,
-          start: 'bottom bottom',
-          end: 'top top',
+          start: 'top bottom',
         },
       });
     });
