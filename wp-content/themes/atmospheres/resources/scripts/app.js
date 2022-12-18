@@ -58,6 +58,33 @@ const main = async (err) => {
     endTrigger: '.wp-block-intro-info',
     end: 'bottom bottom',
   });
+
+  /**
+   * Gsap Tagline Fade In/Out
+   */
+  const taglines = document.querySelectorAll(
+    '.wp-block-intro-info__tagline, .wp-block-intro-info__countdown',
+  );
+
+  if (taglines) {
+    taglines.forEach((tagline) => {
+      gsap.from(tagline, {
+        y: 100,
+        ease: 'power4.out',
+        skewY: 7,
+        opacity: 0,
+        stagger: {
+          amount: 0.3,
+        },
+        duration: 1.8,
+        scrollTrigger: {
+          trigger: tagline,
+          start: 'bottom bottom',
+          end: 'top top',
+        },
+      });
+    });
+  }
 };
 
 /**
