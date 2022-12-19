@@ -2,7 +2,7 @@
   @apply z-10;
 
   &__video {
-    @apply h-full;
+    height: calc(100vh + 50vw);
 
     video {
       @apply h-full object-cover;

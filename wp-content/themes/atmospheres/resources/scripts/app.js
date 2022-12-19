@@ -51,12 +51,40 @@ const main = async (err) => {
    * Gsap Intro reveal
    */
   ScrollTrigger.create({
-    trigger: '.banner',
     scrub: 1,
     pin: '.wp-block-intro',
     pinSpacing: false,
+    start: '0px',
     endTrigger: '.wp-block-intro-info',
     end: 'bottom bottom',
+  });
+
+  /**
+   * Gsap Intro reveal
+   */
+  gsap.to('.wp-block-intro-info__video', {
+    scrollTrigger: {
+      trigger: '.wp-block-intro-info__video',
+      scrub: 1,
+      pin: true,
+      pinSpacing: false,
+      start: 'bottom bottom',
+      endTrigger: 'html',
+      end: 'bottom top',
+    },
+  });
+
+  /**
+   * Gsap Intro reveal
+   */
+  gsap.to('.wp-block-intro-info__video', {
+    scale: 2,
+    scrollTrigger: {
+      scrub: 1,
+      start: '0px',
+      endTigger: '.wp-block-intro-info__video',
+      end: 'bottom bottom',
+    },
   });
 
   /**
@@ -79,7 +107,7 @@ const main = async (err) => {
         duration: 1.8,
         scrollTrigger: {
           trigger: tagline,
-          start: 'top bottom',
+          start: window.innerHeight / 4 + 'px bottom',
         },
       });
     });
