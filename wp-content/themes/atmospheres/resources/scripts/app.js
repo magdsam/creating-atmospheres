@@ -87,6 +87,16 @@ const main = async (err) => {
     },
   });
 
+  gsap.to('.wp-block-intro', {
+    opacity: -2,
+    scrollTrigger: {
+      scrub: 1,
+      start: '0px',
+      endTigger: '.wp-block-intro-info__video',
+      end: 'bottom bottom',
+    },
+  });
+
   /**
    * Gsap Tagline Fade In/Out
    */
@@ -96,20 +106,29 @@ const main = async (err) => {
 
   if (taglines) {
     taglines.forEach((tagline) => {
-      gsap.from(tagline, {
-        y: 100,
-        ease: 'power4.out',
-        skewY: 7,
-        opacity: 0,
-        stagger: {
-          amount: 0.3,
-        },
-        duration: 1.8,
+      let introInfoTl = gsap.timeline({
         scrollTrigger: {
           trigger: tagline,
           start: window.innerHeight / 4 + 'px bottom',
+          toggleActions: 'play none none reverse',
         },
       });
+
+      introInfoTl.fromTo(
+        tagline,
+        {
+          y: 100,
+          skewY: 7,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          ease: 'power4.out',
+          skewY: 0,
+          opacity: 1,
+          duration: 1.8,
+        },
+      );
     });
   }
 };
