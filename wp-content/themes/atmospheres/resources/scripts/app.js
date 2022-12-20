@@ -78,7 +78,7 @@ const main = async (err) => {
    * Gsap Intro reveal
    */
   gsap.to('.wp-block-intro-info__video', {
-    scale: 2,
+    scale: 2.5,
     scrollTrigger: {
       scrub: 1,
       start: '0px',

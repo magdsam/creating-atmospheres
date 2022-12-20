@@ -4,7 +4,7 @@
       {!! $info_left !!}
     </div>
     <div class="wp-block-intro__logo order-first lg:order-none">
-      @svg('images.logo-centered', ['class' => 'w-full lg:w-[51rem]'])
+      @svg('images.logo-centered', ['class' => 'w-full md:w-[30rem] lg:w-[35rem] xl:w-[51rem]'])
     </div>
     <div class="wp-block-intro__info wp-block-intro__info--right lg:w-1/4 text-center lg:text-right text-base md:text-xl font-medium">
       {!! $info_right !!}

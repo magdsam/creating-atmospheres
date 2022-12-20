@@ -5,3 +5,7 @@ body {
 #app {
   @apply relative;
 }
+
+.main {
+  @apply overflow-hidden;
+}
