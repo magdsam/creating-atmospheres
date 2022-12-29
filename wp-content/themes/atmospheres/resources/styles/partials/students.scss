@@ -1,0 +1,58 @@
+.students {
+  .major-list {
+    &__item {
+      @apply relative;
+
+      &::after {
+        @apply absolute -bottom-px left-0 w-full h-px bg-white opacity-0 duration-300;
+
+        content: "";
+      }
+
+      &.has-underline::after {
+        @apply opacity-100;
+      }
+    }
+  }
+
+  .students-list {
+    @apply mb-40;
+
+    .student {
+      @apply relative;
+
+      a {
+        @apply duration-500;
+      }
+
+      &::before {
+        @apply -top-px w-full left-0 absolute duration-500 z-[-1];
+
+        height: calc(100% + 1px);
+        content: "";
+      }
+
+      &__info {
+        @apply border-b border-white;
+      }
+
+      &__image {
+        @apply fixed left-1/2 -translate-y-1/2 top-1/2 h-[70vh] max-h-[36rem] opacity-0 z-10 pointer-events-none bg-black;
+      }
+
+      &:hover {
+        a {
+          @apply text-black;
+        }
+
+        &::before {
+          @apply bg-white;
+        }
+
+        .student__image {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+}

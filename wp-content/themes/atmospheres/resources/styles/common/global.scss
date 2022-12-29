@@ -9,3 +9,9 @@ body {
 .main {
   @apply overflow-hidden;
 }
+
+em {
+  @apply font-serif font-bold;
+
+  font-style: normal;
+}

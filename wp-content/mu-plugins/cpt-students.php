@@ -50,16 +50,16 @@ add_action('init', function () {
 
     register_taxonomy(
         'ca_students_category',
-        'ca_students',
+        'ca_student',
         array(
             // Label should be plural and L10n ready.
-            'label'             => __('Kategorien', 'ca_students'),
+            'label'             => __('Major', 'ca_students'),
             'show_admin_column' => true,
             'show_in_rest' => true,
             'hierarchical' => true,
             'rewrite'           => array(
                 // Slug should be singular and L10n ready..
-                'slug' => _x('students', 'Custom Category slug', 'ca_student'),
+                'slug' => _x('student-type', 'Custom Category slug', 'ca_students'),
                 'with_front' => false,
             ),
         )

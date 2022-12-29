@@ -31,7 +31,8 @@ class ThemeOptions extends Field
         $themeOptions = new FieldsBuilder('theme_options');
 
         $themeOptions
-            ->addWysiwyg('header-cta', ['label' => 'Header Call to Action']);
+            ->addWysiwyg('header-cta', ['label' => 'Header Call to Action'])
+            ->addTrueFalse('show_menu', ['label' => 'Menü anzeigen']);
 
         return $themeOptions->build();
     }

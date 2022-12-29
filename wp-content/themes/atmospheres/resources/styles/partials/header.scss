@@ -1,0 +1,7 @@
+.nav-primary {
+  @apply duration-500 ease-in-out;
+
+  &[status="visible"] {
+    @apply max-h-full;
+  }
+}

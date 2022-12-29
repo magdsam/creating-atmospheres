@@ -50,7 +50,7 @@ add_action('init', function () {
 
     register_taxonomy(
         'ca_exhibits_category',
-        'ca_exhibits',
+        'ca_exhibit',
         array(
             // Label should be plural and L10n ready.
             'label'             => __('Kategorien', 'ca_exhibits'),

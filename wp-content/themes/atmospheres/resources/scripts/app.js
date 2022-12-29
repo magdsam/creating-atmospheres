@@ -1,8 +1,9 @@
 import {domReady} from '@roots/sage/client';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import Flip from 'gsap/Flip';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, Flip);
 
 /**
  * app.main
@@ -11,6 +12,31 @@ const main = async (err) => {
   if (err) {
     // handle hmr errors
     console.error(err);
+  }
+
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+
+  const menuButton = document.querySelector('.banner .menu-button');
+  const navigation = document.querySelector('.nav-primary');
+
+  if (menuButton && navigation) {
+    menuButton.addEventListener('click', toggleNavVisibility);
+  }
+
+  function toggleNavVisibility() {
+    let navState = navigation.getAttribute('status');
+
+    if (navState === 'visible') {
+      navigation.setAttribute('status', 'hidden');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.innerHTML = 'menu';
+    } else {
+      navigation.setAttribute('status', 'visible');
+      menuButton.setAttribute('aria-expanded', 'true');
+      menuButton.innerHTML = 'close';
+    }
   }
 
   /**
@@ -125,6 +151,111 @@ const main = async (err) => {
       });
     }
   }
+
+  /**
+   * Filter
+   */
+  const allButton = document.querySelector('#all');
+  const filters = gsap.utils.toArray('.major-list__item:not(#all)');
+  const items = gsap.utils.toArray('.students-list .student');
+
+  function updateProjectFilter() {
+    const startHeight = gsap.getProperty('.students-list', 'height');
+    const state = Flip.getState(items);
+    const classes = filters
+      .filter((button) => button.classList.contains('is-active'))
+      .map((button) => '.has-major-' + button.id);
+    const matches = classes.length
+      ? gsap.utils.toArray(classes.join(', '))
+      : classes;
+
+    items.forEach(
+      (item) =>
+        (item.style.display = matches.indexOf(item) === -1 ? 'none' : 'block'),
+    );
+
+    const endHeight = gsap.getProperty('.students-list', 'height');
+    const flip = Flip.from(state, {
+      duration: 0.7,
+      scale: true,
+      ease: 'power1.inOut',
+      stagger: 0.08,
+      absolute: true,
+      onEnter: (elements) =>
+        gsap.fromTo(elements, {opacity: 0}, {opacity: 1, duration: 0.4}),
+      onLeave: (elements) => gsap.to(elements, {opacity: 0, duration: 0.4}),
+    });
+
+    flip.fromTo(
+      '.students-list',
+      {
+        height: startHeight,
+      },
+      {
+        height: endHeight,
+        clearProps: 'height',
+        duration: flip.duration(),
+      },
+      0,
+    );
+  }
+
+  if (filters) {
+    filters.forEach(function (categoryButton) {
+      categoryButton.addEventListener('click', function () {
+        let siblings = getSiblings(this);
+
+        siblings.forEach(function (sibling) {
+          sibling.classList.remove('is-active');
+          sibling.classList.remove('has-underline');
+        });
+
+        if (allButton.classList.contains('has-underline')) {
+          allButton.classList.remove('has-underline');
+        }
+
+        this.classList.add('has-underline');
+        this.classList.add('is-active');
+
+        updateProjectFilter();
+      });
+    });
+  }
+
+  if (allButton) {
+    allButton.classList.add('has-underline');
+
+    allButton.addEventListener('click', function () {
+      //filters.forEach(filter => filter.classList.add('is-active'));
+      filters.forEach(function (filter) {
+        filter.classList.add('is-active');
+        filter.classList.remove('has-underline');
+      });
+      if (!this.classList.contains('has-underline')) {
+        this.classList.add('has-underline');
+      }
+      updateProjectFilter();
+    });
+  }
+
+  let getSiblings = function (e) {
+    // for collecting siblings
+    let siblings = [];
+    // if no parent, return no sibling
+    if (!e.parentNode) {
+      return siblings;
+    }
+    // first child of the parent node
+    let sibling = e.parentNode.firstChild;
+    // collecting siblings
+    while (sibling) {
+      if (sibling.nodeType === 1 && sibling !== e) {
+        siblings.push(sibling);
+      }
+      sibling = sibling.nextSibling;
+    }
+    return siblings;
+  };
 };
 
 /**
