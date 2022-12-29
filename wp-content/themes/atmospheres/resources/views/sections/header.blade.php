@@ -1,7 +1,10 @@
 <header class="banner fixed top-0 left-0 w-full {{ get_field('show_menu', 'option') ? "z-30" : "z-[5]"}}">
   <div class="banner__inner flex flex-col md:flex-row justify-between px-4 md:px-8 2xl:px-16 pt-9">
   @if(get_field('show_menu', 'option'))
-  <div class="w-full justify-end flex text-xl font-medium z-30">
+  <div class="w-full justify-between flex text-xl font-medium z-30">
+    <a class="brand" href="{{ home_url('/') }}">
+      @svg('images.logo')
+    </a>
     <button class="menu-button">
       menu
     </button>
