@@ -1,4 +1,4 @@
-<div class="{{ $block->classes }} pt-60 pb-20 px-4 md:px-8 2xl:px-16">
+<div class="{{ $block->classes }} pt-32 md:pt-60 pb-20 px-4 md:px-8 2xl:px-16">
   <div class="wp-block-intro__inner flex flex-col gap-y-6 lg:flex-row justify-between items-center gap-x-5">
     <div class="wp-block-intro__info wp-block-intro__info--left lg:w-1/4 text-center lg:text-left text-base md:text-xl font-medium">
       {!! $info_left !!}

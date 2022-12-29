@@ -109,6 +109,9 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/themes/advanced-topics/customizer-api/#theme-support-in-sidebars
      */
     add_theme_support('customize-selective-refresh-widgets');
+
+    remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
+    remove_action('in_admin_header', 'wp_global_styles_render_svg_filters');
 }, 20);
 
 /**
