@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="students pt-[9.5rem]">
+<div class="students pt-16 md:pt-28">
 
-<h1 class="page-title uppercase text-[5rem] mb-12 px-4 md:px-8 2xl:px-16"><em>S</em>tu<em>de</em>nt<em>s</em></h1>
+<h1 class="page-title uppercase text-center md:text-left text-5xl md:text-[5rem] mb-12 px-4 md:px-8 2xl:px-16"><em>S</em>tu<em>de</em>nt<em>s</em></h1>
 
 @if (! have_posts())
 <x-alert type="warning">
@@ -14,7 +14,7 @@
 @if($students)
 @php($majors = get_terms('ca_students_category'))
 @if ($majors)
-<div class="major-list flex gap-x-12 mb-12 text-xl leading-none px-4 md:px-8 2xl:px-16">
+<div class="major-list flex flex-col md:flex-row items-center gap-y-6 gap-x-12 mb-12 text-lg md:text-xl leading-none px-4 md:px-8 2xl:px-16">
   <button class="major-list__item" id="all">
       All ({{count($students)}})
     </button>
@@ -29,7 +29,7 @@
     @foreach($students as $student)
     <article class='student px-4 md:px-8 2xl:px-16 has-major-{{get_the_terms($student, 'ca_students_category')[0]->slug}}' data-major="{{get_the_terms($student, 'ca_students_category')[0]->slug ? get_the_terms($student, 'ca_students_category')[0]->slug : false}}">
       <a href="{{ get_permalink($student) }}">
-      <header class="student__info flex justify-between text-[2rem] py-6">
+      <header class="student__info flex justify-between text-xl md:text-[2rem] py-4 md:py-6">
         <h2 class="student__name">
             {!! get_the_title($student) !!}
           </h2>
@@ -38,7 +38,7 @@
           @endif
         </header>
       </a>
-      <div class="student__image">
+      <div class="student__image hidden lg:block">
         {!! get_the_post_thumbnail($student) !!}
       </div>
     </article>

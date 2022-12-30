@@ -1,7 +1,7 @@
 .students {
   .major-list {
     &__item {
-      @apply relative;
+      @apply relative flex;
 
       &::after {
         @apply absolute -bottom-px left-0 w-full h-px bg-white opacity-0 duration-300;
@@ -9,7 +9,8 @@
         content: "";
       }
 
-      &.has-underline::after {
+      &.has-underline::after,
+      &:hover::after {
         @apply opacity-100;
       }
     }

@@ -5,3 +5,7 @@
     @apply max-h-full;
   }
 }
+
+.home .banner {
+  @apply fixed top-0 left-0;
+}

@@ -39,7 +39,7 @@ export default async (app) => {
     /**
      * URI of the `public` directory
      */
-    .setPublicPath('/app/themes/atmospheres/public/')
+    .setPublicPath('/wp-content/themes/atmospheres/public/')
 
     /**
      * Generate WordPress `theme.json`
