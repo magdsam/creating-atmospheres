@@ -29,6 +29,7 @@
     "stylelint-config-prettier-scss": "^0.0.1"
   },
   "dependencies": {
-    "gsap": "^3.11.3"
+    "gsap": "^3.11.3",
+    "isotope-layout": "^3.0.6"
   }
 }

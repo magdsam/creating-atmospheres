@@ -1,9 +1,11 @@
 import {domReady} from '@roots/sage/client';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import {Draggable} from 'gsap/Draggable';
 import Flip from 'gsap/Flip';
+import Isotope from 'isotope-layout';
 
-gsap.registerPlugin(ScrollTrigger, Flip);
+gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
 
 /**
  * app.main
@@ -256,6 +258,55 @@ const main = async (err) => {
     }
     return siblings;
   };
+
+  var masonry = document.querySelector('.grid');
+  new Isotope(masonry, {
+    // options
+    itemSelector: '.grid-item',
+  });
+
+  const exhibitsContainer = document.querySelector(
+    '.post-type-archive-ca_exhibit .container',
+  );
+  const exhibits = document.querySelector(
+    '.post-type-archive-ca_exhibit .exhibits',
+  );
+
+  Draggable.create(exhibits, {
+    type: 'x,y',
+    bounds: exhibitsContainer,
+    edgeResistance: 1,
+    dragResistance: 0.5,
+    zIndexBoost: false,
+    onDrag: function () {
+      gsap.to(exhibits, {
+        left: this.x,
+        top: this.y,
+      });
+    },
+  });
+
+  // let moveExhibits;
+
+  // function startDragging(event) {
+  //   let startX = event.pageX - exhibits.offsetLeft;
+  //   let startY = event.pageY - exhibits.offsetTop;
+  //   console.log(exhibits.offsetLeft);
+
+  //   moveExhibits = function (e) {
+  //     exhibits.style.left = e.pageX - startX + 'px';
+  //     exhibits.style.top = e.pageY - startY + 'px';
+  //   };
+
+  //   window.addEventListener('mousemove', moveExhibits);
+  // }
+
+  // function stopDragging() {
+  //   window.removeEventListener('mousemove', moveExhibits);
+  // }
+
+  // window.addEventListener('mousedown', startDragging);
+  // window.addEventListener('mouseup', stopDragging);
 };
 
 /**

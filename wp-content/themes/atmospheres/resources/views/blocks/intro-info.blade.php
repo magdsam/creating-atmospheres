@@ -1,7 +1,7 @@
 <div class="{{ $block->classes }} relative">
   @if($video)
   <div class="wp-block-intro-info__video w-full overflow-hidden bg-black rounded-t-full absolute left-0 top-0 z-[-1]">
-    <video width="{{ $video['width'] }}" height="{{ $video['height'] }}" class="w-full h-auto blur-xl scale-105" autoplay muted loop playsinline>
+    <video width="{{ $video['width'] }}" height="{{ $video['height'] }}" class="w-full h-auto blur-lg scale-105" autoplay muted loop playsinline>
       <source src="{{ $video['url'] }}" type="{{$video['mime_type']}}">
     </video>
   </div>

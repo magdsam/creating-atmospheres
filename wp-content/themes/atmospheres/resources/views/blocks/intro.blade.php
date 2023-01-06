@@ -1,4 +1,4 @@
-<div class="{{ $block->classes }} pt-24 md:pt-60 pb-14 px-4 md:px-8 2xl:px-16">
+<div class="{{ $block->classes }} pt-24 md:pt-60 pb-14 md:pb-20 px-4 md:px-8 2xl:px-16">
   <div class="wp-block-intro__inner flex flex-col gap-y-6 lg:flex-row justify-between items-center gap-x-5">
     <div class="wp-block-intro__subtitl lg:hidden text-center uppercase text-2xl">
       {{ $subtitle }}
