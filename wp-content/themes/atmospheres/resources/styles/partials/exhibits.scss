@@ -41,7 +41,54 @@
     }
   }
 
+  &.layout-grid {
+    .exhibits {
+      @apply min-w-[300vw] overflow-visible;
+    }
+  }
+
+  &.layout-list {
+    .main {
+      @apply overflow-visible h-auto;
+    }
+
+    .exhibits-container {
+      @apply overflow-visible h-auto pt-40;
+    }
+
+    .exhibits {
+      @apply max-w-[100vw] overflow-visible h-auto;
+
+      left: 0 !important;
+      top: 0 !important;
+
+      &__title {
+        @apply relative;
+      }
+    }
+
+    .exhibit {
+      @apply p-0;
+
+      &__image {
+        @apply hidden;
+      }
+    }
+  }
+
   .content-info {
     @apply hidden;
+  }
+
+  .switches {
+    @apply rounded-full p-3 gap-x-1;
+  }
+
+  .switch {
+    @apply flex items-center gap-x-2 py-5 bg-black text-white px-6 rounded-full;
+
+    svg {
+      @apply fill-white;
+    }
   }
 }

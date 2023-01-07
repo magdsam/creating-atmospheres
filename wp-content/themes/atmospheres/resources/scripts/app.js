@@ -17,7 +17,7 @@ const main = async (err) => {
   }
 
   window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
+    exhibits.classList.add('loaded');
   });
 
   const menuButton = document.querySelector('.banner .menu-button');
@@ -266,27 +266,34 @@ const main = async (err) => {
     '.post-type-archive-ca_exhibit .exhibits',
   );
 
+  let iso;
+
   if (exhibits) {
     var masonry = document.querySelector('.post-type-archive-ca_exhibit .grid');
-    new Isotope(masonry, {
-      // options
+
+    iso = new Isotope(masonry, {
+      layoutMode: 'masonry',
       itemSelector: '.grid-item',
+      percentPosition: true,
     });
+
+    document.body.classList.add('layout-grid');
+    iso.shuffle();
   }
+
+  let dragNavigation;
 
   function dragContainer() {
     let exhibitsPosX = -exhibits.clientWidth / 4;
     let exhibitsPosY = -exhibits.clientHeight / 4;
 
-    Draggable.create(exhibits, {
+    dragNavigation = Draggable.create(exhibits, {
       type: 'x,y',
       bounds: exhibitsContainer,
       edgeResistance: 1,
       dragResistance: 0.1,
       zIndexBoost: false,
       onDrag: function () {
-        console.log(this.x);
-        console.log(this.y);
         gsap.to(exhibits, {
           left: this.x,
           top: this.y,
@@ -304,8 +311,55 @@ const main = async (err) => {
 
   if (exhibits) {
     dragContainer();
-
     window.addEventListener('resize', dragContainer);
+
+    const buttonGrid = document.getElementById('switch-grid');
+    const buttonList = document.getElementById('switch-list');
+
+    if (buttonGrid && buttonList) {
+      buttonGrid.addEventListener('click', () => {
+        if (!buttonGrid.classList.contains('is-active')) {
+          document.body.classList.add('layout-grid');
+          buttonGrid.classList.add('is-active');
+
+          iso = new Isotope(masonry, {
+            layoutMode: 'masonry',
+            itemSelector: '.grid-item',
+            percentPosition: true,
+          });
+
+          dragContainer();
+          dragNavigation[0].enable();
+        }
+
+        if (buttonList.classList.contains('is-active')) {
+          buttonList.classList.remove('is-active');
+          document.body.classList.remove('layout-list');
+        }
+      });
+
+      buttonList.addEventListener('click', () => {
+        if (!buttonList.classList.contains('is-active')) {
+          dragNavigation[0].disable();
+          buttonList.classList.add('is-active');
+          document.body.classList.add('layout-list');
+        }
+
+        if (buttonGrid.classList.contains('is-active')) {
+          buttonGrid.classList.remove('is-active');
+          document.body.classList.remove('layout-grid');
+        }
+
+        setTimeout(() => {
+          console.log('Delayed for 1 second.');
+          iso = new Isotope(masonry, {
+            layoutMode: 'vertical',
+            itemSelector: '.grid-item',
+            percentPosition: true,
+          });
+        }, 1000);
+      });
+    }
   }
 };
 
