@@ -18,8 +18,8 @@
   }
 
   .exhibit {
-    &__title {
-      @apply z-10 opacity-0 duration-300;
+    &__infos {
+      @apply z-10 opacity-0 transition-opacity duration-300;
     }
 
     &__inner {
@@ -34,7 +34,7 @@
           @apply opacity-50;
         }
 
-        .exhibit__title {
+        .exhibit__infos {
           @apply opacity-100;
         }
       }
@@ -44,6 +44,14 @@
   &.layout-grid {
     .exhibits {
       @apply min-w-[300vw] overflow-visible;
+    }
+
+    .exhibit {
+      @apply order-none p-[15%];
+
+      &__area {
+        @apply hidden;
+      }
     }
   }
 
@@ -57,21 +65,41 @@
     }
 
     .exhibits {
-      @apply max-w-[100vw] overflow-visible h-auto;
+      @apply max-w-[100vw] relative w-full flex flex-col overflow-visible h-auto;
 
       left: 0 !important;
       top: 0 !important;
+      min-width: auto !important;
 
       &__title {
-        @apply relative;
+        @apply relative px-4 md:px-8 2xl:px-16;
       }
     }
 
     .exhibit {
-      @apply p-0;
+      @apply p-0 relative w-full px-4 md:px-8 2xl:px-16;
 
       &__image {
         @apply hidden;
+      }
+
+      /* stylelint-disable-next-line no-descending-specificity */
+      &__infos {
+        @apply opacity-100 border-b border-white w-full leading-none py-6 text-[2rem] relative text-left translate-x-0 translate-y-0 top-auto left-auto;
+      }
+
+      a {
+        @apply w-full;
+      }
+
+      &__inner {
+        @apply w-full;
+
+        transform: none !important;
+      }
+
+      &__title {
+        @apply w-auto text-[2rem] leading-none;
       }
     }
   }
@@ -85,10 +113,18 @@
   }
 
   .switch {
-    @apply flex items-center gap-x-2 py-5 bg-black text-white px-6 rounded-full;
+    @apply flex items-center gap-x-2 py-5 px-6 rounded-full duration-300 ease-in-out;
 
     svg {
-      @apply fill-white;
+      @apply duration-300 ease-in-out;
+    }
+
+    &.is-active {
+      @apply bg-black text-white;
+
+      svg {
+        @apply fill-white;
+      }
     }
   }
 }

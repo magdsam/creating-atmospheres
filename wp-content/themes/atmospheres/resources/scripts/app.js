@@ -3,7 +3,6 @@ import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {Draggable} from 'gsap/Draggable';
 import Flip from 'gsap/Flip';
-import Isotope from 'isotope-layout';
 
 gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
 
@@ -266,19 +265,8 @@ const main = async (err) => {
     '.post-type-archive-ca_exhibit .exhibits',
   );
 
-  let iso;
-
   if (exhibits) {
-    var masonry = document.querySelector('.post-type-archive-ca_exhibit .grid');
-
-    iso = new Isotope(masonry, {
-      layoutMode: 'masonry',
-      itemSelector: '.grid-item',
-      percentPosition: true,
-    });
-
     document.body.classList.add('layout-grid');
-    iso.shuffle();
   }
 
   let dragNavigation;
@@ -322,14 +310,7 @@ const main = async (err) => {
           document.body.classList.add('layout-grid');
           buttonGrid.classList.add('is-active');
 
-          iso = new Isotope(masonry, {
-            layoutMode: 'masonry',
-            itemSelector: '.grid-item',
-            percentPosition: true,
-          });
-
           dragContainer();
-          dragNavigation[0].enable();
         }
 
         if (buttonList.classList.contains('is-active')) {
@@ -349,15 +330,6 @@ const main = async (err) => {
           buttonGrid.classList.remove('is-active');
           document.body.classList.remove('layout-grid');
         }
-
-        setTimeout(() => {
-          console.log('Delayed for 1 second.');
-          iso = new Isotope(masonry, {
-            layoutMode: 'vertical',
-            itemSelector: '.grid-item',
-            percentPosition: true,
-          });
-        }, 1000);
       });
     }
   }
