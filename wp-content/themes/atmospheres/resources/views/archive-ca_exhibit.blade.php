@@ -10,10 +10,12 @@
     {!! get_search_form(false) !!}
   @endif
 
-  <div class="exhibits grid min-w-[200vw] overflow-visible">
-    @while(have_posts()) @php(the_post())
-    @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
-    @endwhile
+  <div class="exhibits-container">
+    <div class="exhibits grid min-w-[300vw] overflow-visible">
+      @while(have_posts()) @php(the_post())
+      @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
+      @endwhile
+    </div>
   </div>
 
   {!! get_the_posts_navigation() !!}

@@ -259,54 +259,54 @@ const main = async (err) => {
     return siblings;
   };
 
-  var masonry = document.querySelector('.grid');
-  new Isotope(masonry, {
-    // options
-    itemSelector: '.grid-item',
-  });
-
   const exhibitsContainer = document.querySelector(
-    '.post-type-archive-ca_exhibit .container',
+    '.post-type-archive-ca_exhibit .exhibits-container',
   );
   const exhibits = document.querySelector(
     '.post-type-archive-ca_exhibit .exhibits',
   );
 
-  Draggable.create(exhibits, {
-    type: 'x,y',
-    bounds: exhibitsContainer,
-    edgeResistance: 1,
-    dragResistance: 0.5,
-    zIndexBoost: false,
-    onDrag: function () {
-      gsap.to(exhibits, {
-        left: this.x,
-        top: this.y,
-      });
-    },
-  });
+  if (exhibits) {
+    var masonry = document.querySelector('.post-type-archive-ca_exhibit .grid');
+    new Isotope(masonry, {
+      // options
+      itemSelector: '.grid-item',
+    });
+  }
 
-  // let moveExhibits;
+  function dragContainer() {
+    let exhibitsPosX = -exhibits.clientWidth / 4;
+    let exhibitsPosY = -exhibits.clientHeight / 4;
 
-  // function startDragging(event) {
-  //   let startX = event.pageX - exhibits.offsetLeft;
-  //   let startY = event.pageY - exhibits.offsetTop;
-  //   console.log(exhibits.offsetLeft);
+    Draggable.create(exhibits, {
+      type: 'x,y',
+      bounds: exhibitsContainer,
+      edgeResistance: 1,
+      dragResistance: 0.1,
+      zIndexBoost: false,
+      onDrag: function () {
+        console.log(this.x);
+        console.log(this.y);
+        gsap.to(exhibits, {
+          left: this.x,
+          top: this.y,
+        });
+      },
+    });
 
-  //   moveExhibits = function (e) {
-  //     exhibits.style.left = e.pageX - startX + 'px';
-  //     exhibits.style.top = e.pageY - startY + 'px';
-  //   };
+    gsap.set(exhibits, {
+      left: exhibitsPosX,
+      top: exhibitsPosY,
+      x: exhibitsPosX,
+      y: exhibitsPosY,
+    });
+  }
 
-  //   window.addEventListener('mousemove', moveExhibits);
-  // }
+  if (exhibits) {
+    dragContainer();
 
-  // function stopDragging() {
-  //   window.removeEventListener('mousemove', moveExhibits);
-  // }
-
-  // window.addEventListener('mousedown', startDragging);
-  // window.addEventListener('mouseup', stopDragging);
+    window.addEventListener('resize', dragContainer);
+  }
 };
 
 /**

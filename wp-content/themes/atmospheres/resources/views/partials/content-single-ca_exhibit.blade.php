@@ -1,8 +1,8 @@
 <article @php(post_class())>
   <header>
-    <h1 class="entry-title exhibit">
+    <h2 class="entry-title exhibit">
       {!! $title !!}
-    </h1>
+    </h2>
 
     @include('partials.entry-meta')
   </header>
