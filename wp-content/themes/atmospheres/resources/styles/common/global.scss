@@ -21,3 +21,10 @@ em {
 
   font-style: normal;
 }
+
+p a {
+  @apply underline;
+
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 0.05em;
+}

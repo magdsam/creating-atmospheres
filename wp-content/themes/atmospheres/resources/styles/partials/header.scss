@@ -6,6 +6,13 @@
   }
 }
 
+.banner {
+  .divider,
+  .imprint-link {
+    @apply hidden;
+  }
+}
+
 .home .banner {
   @apply fixed top-0 left-0;
 }
