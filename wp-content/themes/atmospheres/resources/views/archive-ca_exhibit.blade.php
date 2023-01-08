@@ -13,7 +13,7 @@
   @if ($exhibits)
   <div class="exhibits-container">
     <h1 class="exhibits__title uppercase absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[5rem]"><em>E</em>xhi<em>b</em>it<em>s</em></h1>
-    <div class="exhibits absolute grid gap-12" style="grid-template-columns: repeat({{ round(sqrt(count($exhibits))) }}, minmax(0, 1fr)); min-width: calc({{round(sqrt(count($exhibits)))}} * 45vw)">
+    <div class="exhibits absolute grid gap-4 lg:gap-12" style="grid-template-columns: repeat({{ round(sqrt(count($exhibits))) }}, minmax(0, 1fr)); min-width: calc({{round(sqrt(count($exhibits)))}} * 45vw)">
       @foreach($exhibits as $exhibit)
       @if(floor(count($exhibits)/2) == $loop->index)
       <div class="blank-space"></div>

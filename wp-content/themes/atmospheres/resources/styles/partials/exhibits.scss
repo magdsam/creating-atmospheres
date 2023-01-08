@@ -44,6 +44,10 @@
   &.layout-grid {
     .exhibits {
       @apply min-w-[300vw] overflow-visible;
+
+      @media screen and (max-width: 1023px) {
+        min-width: 300vw !important;
+      }
     }
 
     .exhibit {
@@ -70,7 +74,7 @@
     }
 
     .exhibits {
-      @apply max-w-[100vw] relative w-full flex flex-col overflow-visible h-auto;
+      @apply max-w-[100vw] relative gap-0 w-full flex flex-col overflow-visible h-auto;
 
       left: 0 !important;
       top: 0 !important;
