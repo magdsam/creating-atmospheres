@@ -19,7 +19,7 @@
 
   .exhibit {
     &__infos {
-      @apply z-10 opacity-0 transition-opacity duration-300;
+      @apply z-10 opacity-0;
     }
 
     &__inner {
@@ -47,7 +47,12 @@
     }
 
     .exhibit {
-      @apply order-none p-[15%];
+      @apply order-none p-[10%];
+
+      /* stylelint-disable-next-line no-descending-specificity */
+      &__infos {
+        @apply transition-opacity duration-300;
+      }
 
       &__area {
         @apply hidden;

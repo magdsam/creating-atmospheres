@@ -272,8 +272,15 @@ const main = async (err) => {
   let dragNavigation;
 
   function dragContainer() {
-    let exhibitsPosX = -exhibits.clientWidth / 4;
-    let exhibitsPosY = -exhibits.clientHeight / 4;
+    let exhibitsPosX = -((exhibits.clientWidth - window.innerWidth) / 2);
+    let exhibitsPosY = -((exhibits.clientHeight - window.innerHeight) / 2);
+
+    gsap.set(exhibits, {
+      left: exhibitsPosX,
+      top: exhibitsPosY,
+      x: exhibitsPosX,
+      y: exhibitsPosY,
+    });
 
     dragNavigation = Draggable.create(exhibits, {
       type: 'x,y',
@@ -287,13 +294,6 @@ const main = async (err) => {
           top: this.y,
         });
       },
-    });
-
-    gsap.set(exhibits, {
-      left: exhibitsPosX,
-      top: exhibitsPosY,
-      x: exhibitsPosX,
-      y: exhibitsPosY,
     });
   }
 
