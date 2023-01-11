@@ -66,6 +66,10 @@
     .area-list {
       @apply hidden;
     }
+
+    .content-info {
+      @apply hidden;
+    }
   }
 
   &.layout-list {
@@ -78,7 +82,7 @@
     }
 
     .exhibits {
-      @apply max-w-[100vw] relative gap-0 w-full flex flex-col overflow-visible h-auto;
+      @apply max-w-[100vw] relative gap-0 w-full flex flex-col overflow-visible h-auto mb-20 md:mb-40;
 
       left: 0 !important;
       top: 0 !important;
@@ -115,10 +119,23 @@
         @apply w-auto text-[2rem] leading-none;
       }
     }
-  }
 
-  .content-info {
-    @apply hidden;
+    .area-list {
+      &__item {
+        @apply relative flex;
+
+        &::after {
+          @apply absolute -bottom-px left-0 w-full h-px bg-white opacity-0 duration-300;
+
+          content: "";
+        }
+
+        &.has-underline::after,
+        &:hover::after {
+          @apply opacity-100;
+        }
+      }
+    }
   }
 
   .switches {
