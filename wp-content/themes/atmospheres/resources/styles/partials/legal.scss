@@ -1,0 +1,30 @@
+.page-template-template-legal .main {
+  @apply px-4 md:px-8 2xl:px-16 pt-16 md:pt-28 pb-10 md:pb-40 mx-auto;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol {
+    @apply max-w-[80ch];
+  }
+
+  h1 {
+    @apply text-5xl md:text-[5rem] uppercase mb-[0.5em];
+  }
+
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply uppercase mt-[3em] mb-[1em];
+  }
+
+  p + p {
+    @apply mt-[1em];
+  }
+}

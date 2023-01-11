@@ -3,18 +3,18 @@
     <div class="wp-block-intro__subtitl lg:hidden text-center uppercase text-2xl">
       {{ $subtitle }}
     </div>
-    <div class="wp-block-intro__info wp-block-intro__info--left lg:w-1/4 text-center lg:text-left text-base md:text-xl font-medium">
+    <div class="wp-block-intro__info wp-block-intro__info--left lg:w-1/4 text-center  lg:text-left text-base md:text-xl lg:text-base xl:text-xl font-medium">
       {!! $info_left !!}
     </div>
     <div class="wp-block-intro__logo order-first lg:order-none">
       @svg('images.logo-centered', ['class' => 'w-full md:w-[30rem] lg:w-[35rem] xl:w-[51rem]'])
     </div>
-    <div class="wp-block-intro__info wp-block-intro__info--right lg:w-1/4 text-center lg:text-right text-base md:text-xl font-medium">
+    <div class="wp-block-intro__info wp-block-intro__info--right lg:w-1/4 text-center lg:text-right text-base md:text-xl lg:text-base xl:text-xl font-medium">
       {!! $info_right !!}
     </div>
   </div>
   @if ($subtitle)
-    <div class="wp-block-intro__subtitl hidden lg:block text-center uppercase text-5xl mt-6 font-light">
+    <div class="wp-block-intro__subtitle hidden lg:block text-center uppercase text-5xl mt-6 font-light">
       {{ $subtitle }}
     </div>
   @endif

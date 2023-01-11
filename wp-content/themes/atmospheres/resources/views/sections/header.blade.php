@@ -1,5 +1,5 @@
 <header class="banner w-full {{ get_field('show_menu', 'option') ? 'z-40' : 'z-[5]' }}">
-  <div class="banner__inner flex flex-col md:flex-row justify-between px-4 md:px-8 2xl:px-16 pt-9">
+  <div class="banner__inner flex flex-col lg:flex-row justify-between px-4 md:px-8 2xl:px-16 pt-9">
   @if(get_field('show_menu', 'option'))
   <div class="w-full justify-between flex text-xl font-medium z-30">
     <a class="brand flex flex-col justify-center" href="{{ home_url('/') }}">
@@ -10,10 +10,10 @@
     </button>
   </div>
   @else
-    <div class="banner__logos hidden md:block">
+    <div class="banner__logos hidden lg:block">
       @include('partials/logos')
     </div>
-    <div class="banner__cta text-center md:text-right">
+    <div class="banner__cta text-center lg:text-right">
       @hasoption('header-cta')
       @option('header-cta')
       @endoption

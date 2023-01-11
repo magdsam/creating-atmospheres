@@ -11,6 +11,10 @@
   .imprint-link {
     @apply hidden;
   }
+
+  p a {
+    @apply no-underline;
+  }
 }
 
 .nav-info {
