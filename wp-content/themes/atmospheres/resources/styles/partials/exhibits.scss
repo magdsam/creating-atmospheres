@@ -62,6 +62,10 @@
         @apply hidden;
       }
     }
+
+    .area-list {
+      @apply hidden;
+    }
   }
 
   &.layout-list {

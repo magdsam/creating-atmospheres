@@ -12,10 +12,10 @@
 @endif
 
 @if($students)
-@php($majors = get_terms('ca_students_category'))
-@if ($majors)
-<div class="major-list flex flex-col md:flex-row items-center gap-y-6 gap-x-12 mb-12 text-lg md:text-xl leading-none px-4 md:px-8 2xl:px-16">
-  <button class="major-list__item" id="all">
+  @php($majors = get_terms('ca_students_category'))
+  @if ($majors)
+  <div class="major-list flex flex-col md:flex-row items-center gap-y-6 gap-x-12 mb-12 text-lg md:text-xl leading-none px-4 md:px-8 2xl:px-16">
+    <button class="major-list__item" id="all">
       All ({{count($students)}})
     </button>
       @foreach($majors as $major)
@@ -23,11 +23,11 @@
         {{ $major->name . " (" . $major->count . ")"}}
       </button>
       @endforeach
-    </div>
+  </div>
   @endif
   <div class="students-list">
     @foreach($students as $student)
-    <article class='student px-4 md:px-8 2xl:px-16 has-major-{{get_the_terms($student, 'ca_students_category')[0]->slug}}' data-major="{{get_the_terms($student, 'ca_students_category')[0]->slug ? get_the_terms($student, 'ca_students_category')[0]->slug : false}}">
+    <article class='student px-4 md:px-8 2xl:px-16 has-cat-{{get_the_terms($student, 'ca_students_category')[0]->slug}}' data-cat="{{get_the_terms($student, 'ca_students_category')[0]->slug ? get_the_terms($student, 'ca_students_category')[0]->slug : false}}">
       <a href="{{ get_permalink($student) }}">
       <header class="student__info flex justify-between text-xl md:text-[2rem] py-4 md:py-6">
         <h2 class="student__name">

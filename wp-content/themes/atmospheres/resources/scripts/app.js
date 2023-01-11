@@ -157,15 +157,19 @@ const main = async (err) => {
    * Filter
    */
   const allButton = document.querySelector('#all');
-  const filters = gsap.utils.toArray('.major-list__item:not(#all)');
-  const items = gsap.utils.toArray('.students-list .student');
+  const filters = gsap.utils.toArray(
+    '.major-list__item:not(#all), .area-list__item:not(#all)',
+  );
+  const items = gsap.utils.toArray(
+    '.students-list .student, .exhibits .exhibit',
+  );
 
   function updateProjectFilter() {
-    const startHeight = gsap.getProperty('.students-list', 'height');
+    const startHeight = gsap.getProperty('.students-list, .exhibits', 'height');
     const state = Flip.getState(items);
     const classes = filters
       .filter((button) => button.classList.contains('is-active'))
-      .map((button) => '.has-major-' + button.id);
+      .map((button) => '.has-cat-' + button.id);
     const matches = classes.length
       ? gsap.utils.toArray(classes.join(', '))
       : classes;
@@ -175,7 +179,7 @@ const main = async (err) => {
         (item.style.display = matches.indexOf(item) === -1 ? 'none' : 'block'),
     );
 
-    const endHeight = gsap.getProperty('.students-list', 'height');
+    const endHeight = gsap.getProperty('.students-list, .exhibits', 'height');
     const flip = Flip.from(state, {
       duration: 0.7,
       scale: true,
@@ -188,7 +192,7 @@ const main = async (err) => {
     });
 
     flip.fromTo(
-      '.students-list',
+      '.students-list, .exhibits',
       {
         height: startHeight,
       },

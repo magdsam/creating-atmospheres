@@ -13,6 +13,21 @@
   @if ($exhibits)
   <div class="exhibits-container">
     <h1 class="exhibits__title uppercase absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[5rem]"><em>E</em>xhi<em>b</em>it<em>s</em></h1>
+    @php
+      $areas = get_terms('ca_exhibits_category')
+    @endphp
+    @if($areas)
+    <div class="area-list flex flex-col md:flex-row items-center gap-y-6 gap-x-12 mb-12 text-lg md:text-xl leading-none px-4 md:px-8 2xl:px-16">
+      <button class="area-list__item" id="all">
+        All ({{count($exhibits)}})
+      </button>
+      @foreach($areas as $area)
+        <button class="area-list__item" id="{{$area->slug}}">
+          {{ $area->name . " (" . $area->count . ")"}}
+        </button>
+      @endforeach
+    </div>
+    @endif
     <div class="exhibits absolute grid gap-4 lg:gap-12" style="grid-template-columns: repeat({{ round(sqrt(count($exhibits))) }}, minmax(0, 1fr)); min-width: calc({{round(sqrt(count($exhibits)))}} * 45vw)">
       @foreach($exhibits as $exhibit)
       @if(floor(count($exhibits)/2) == $loop->index)
@@ -27,7 +42,7 @@
           $randomItems = 'items-end';
         }
       @endphp
-      <article class="exhibit flex justify-center {{$randomItems}} order-{{$exhibit->menu_order != 0 ? $exhibit->menu_order : 'none' }}">
+      <article class="exhibit flex justify-center {{$randomItems}} order-{{$exhibit->menu_order != 0 ? $exhibit->menu_order : 'none' }} has-cat-{{get_the_terms($exhibit, 'ca_exhibits_category')[0]->slug}}" data-cat="{{get_the_terms($exhibit, 'ca_exhibits_category')[0]->slug}}">
         <div class="exhibit__inner relative" style="transform: translateX({{ rand(-10, 10) . '%' }}) translateY({{ rand(-25, 25) . '%' }})">
           <a class="block" href="{{ get_permalink($exhibit) }}">
           <div class="exhibit__infos flex justify-between absolute w-full -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
