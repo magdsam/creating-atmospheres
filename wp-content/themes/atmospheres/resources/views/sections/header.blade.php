@@ -26,9 +26,9 @@
     <div class="nav__inner relative w-full h-screen">
       @include('partials.navigation')
       @hasoption('menu_info')
-      <div class="nav-info md:absolute md:right-4 md:bottom-4 lg:right-12 lg:bottom-12 xl:right-24 lxl:bottom-16 text-base xl:text-xl">
+      <div class="nav-info text-center lg:text-left md:absolute md:right-4 md:bottom-4 lg:right-12 lg:bottom-12 xl:right-24 lxl:bottom-16 text-base xl:text-xl">
         @option('menu_info')
-        <div class="flex items-center gap-x-1 mt-6 xl:mt-10">@svg('images.icon-instagram') <p>follow us on instagram <a target="_blank" href="https://www.instagram.com/cmsbycms/">@cmsbycms</a></p></div>
+        <div class="flex items-center gap-x-1 mt-6 xl:mt-10 justify-center lg:justify-start">@svg('images.icon-instagram') <p>follow us on instagram <a target="_blank" href="https://www.instagram.com/cmsbycms/">@cmsbycms</a></p></div>
       </div>
       @endoption
     </div>
