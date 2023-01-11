@@ -16,7 +16,7 @@ const main = async (err) => {
   }
 
   window.addEventListener('load', () => {
-    exhibits.classList.add('loaded');
+    document.body.classList.add('loaded');
   });
 
   const menuButton = document.querySelector('.banner .menu-button');

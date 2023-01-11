@@ -32,6 +32,7 @@ class ThemeOptions extends Field
 
         $themeOptions
             ->addWysiwyg('header-cta', ['label' => 'Header/Footer Call to Action'])
+            ->addWysiwyg('menu_info', ['label' => 'Menu Information'])
             ->addTrueFalse('show_menu', ['label' => 'Show Menu'])
             ->addWysiwyg('menu_information', ['label' => 'Menu Information']);
 
